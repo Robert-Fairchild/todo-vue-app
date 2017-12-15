@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Task App</title>
+  <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+  <script src="https://unpkg.com/vue-router/dist/vue-router.min.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="index.js" defer></script>
+</head>
+<body>
+  <div id="app">
+    <router-view></router-view>
+  </div>
+</body>
+</html>
+
+<template id="home-page">
+  <div>
+    <h1>{{ message }}</h1>
+    <ul>
+    <li v-for="completed in tasks">
+      id:{{completed.id}} - Task: {{completed.text}} - Completed: {{completed.complete}}
+      </li>
+      <ul>
+    <h4>Add New Task</h4>
+    <form>
+      <div>
+        Task id: <input type="text" v-model="newTaskId">
+      </div>
+      <div>
+        Task text: <input type="text" v-model="newTaskText">
+      </div>
+      <button v-on:click="addTask() ">Add Task</button>
+      <input type="reset" value="Reset Fields">
+  </div>
+</template>
